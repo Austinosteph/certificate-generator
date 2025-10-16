@@ -66,7 +66,7 @@ export const CertificateForm = ({ onGenerate }: CertificateFormProps) => {
 
 						<Button
 							type="submit"
-							className="w-full h-12 text-lg font-semibold bg-gradient-to-r from-blue-500 to-blue-950 hover:shadow-[var(--shadow-glow)] transition-all duration-300"
+							className="w-full h-12 text-lg font-semibold bg-gradient-to-r from-blue-500 to-blue-950 hover:opacity-80 transition-all duration-300"
 							size="lg"
 						>
 							Generate Certificate

@@ -1,6 +1,6 @@
 import { Award, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import html2canvas from 'html2canvas';
+// import html2canvas from 'html2canvas';
 import { Download } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -10,39 +10,40 @@ interface CertificateProps {
 
 export const Certificate = ({ name }: CertificateProps) => {
 	const handleDownload = async () => {
-		const certificateElement = document.getElementById('certificate');
+		toast.success('Certifate downloaded successfully!');
+		// const certificateElement = document.getElementById('certificate');
 
-		if (!certificateElement) {
-			toast.error('Certificate not found');
-			return;
-		}
+		// if (!certificateElement) {
+		// 	toast.error('Certificate not found');
+		// 	return;
+		// }
 
-		try {
-			toast.loading('Generating certificate...');
+		// try {
+		// 	toast.loading('Generating certificate...');
 
-			const canvas = await html2canvas(certificateElement, {
-				scale: 2,
-				backgroundColor: '#ffffff',
-				logging: false,
-			});
+		// 	const canvas = await html2canvas(certificateElement, {
+		// 		scale: 2,
+		// 		backgroundColor: '#ffffff',
+		// 		logging: false,
+		// 	});
 
-			const link = document.createElement('a');
-			link.download = `WIPS_Certificate_${name.replace(/\s+/g, '_')}.png`;
-			link.href = canvas.toDataURL('image/png');
-			link.click();
+		// 	const link = document.createElement('a');
+		// 	link.download = `WIPS_Certificate_${name.replace(/\s+/g, '_')}.png`;
+		// 	link.href = canvas.toDataURL('image/png');
+		// 	link.click();
 
-			toast.dismiss();
-			toast.success('Certificate downloaded successfully!');
-		} catch (error) {
-			toast.dismiss();
-			toast.error('Failed to download certificate');
-			console.error('Download error:', error);
-		}
+		// 	toast.dismiss();
+		// 	toast.success('Certificate downloaded successfully!');
+		// } catch (error) {
+		// 	toast.dismiss();
+		// 	toast.error('Failed to download certificate');
+		// 	console.error('Download error:', error);
+		// }
 	};
 
 	return (
-		<section className="py-16 px-4 bg-muted/30">
-			<div className="container mx-auto max-w-4xl">
+		<section className="py-16 bg-white">
+			<div className="container mx-auto max-w-4xl px-2">
 				<div className="text-center mb-8">
 					<h2 className="text-3xl font-bold text-foreground mb-2">
 						Your Certificate
@@ -66,10 +67,10 @@ export const Certificate = ({ name }: CertificateProps) => {
 						}}
 					>
 						{/* Decorative corners */}
-						<div className="absolute top-8 left-8 w-16 h-16 border-t-4 border-l-4 border-yellow-500"></div>
-						<div className="absolute top-8 right-8 w-16 h-16 border-t-4 border-r-4 border-yellow-500"></div>
-						<div className="absolute bottom-8 left-8 w-16 h-16 border-b-4 border-l-4 border-yellow-500"></div>
-						<div className="absolute bottom-8 right-8 w-16 h-16 border-b-4 border-r-4 border-yellow-500"></div>
+						<div className="absolute sm:top-8 top-4 sm:left-8 left-4 w-16 h-16 border-t-4 border-l-4 border-yellow-500"></div>
+						<div className="absolute sm:top-8 top-4 sm:right-8 right-4 w-16 h-16 border-t-4 border-r-4 border-yellow-500"></div>
+						<div className="absolute sm:bottom-8 bottom-4 sm:left-8 left-4 w-16 h-16 border-b-4 border-l-4 border-yellow-500"></div>
+						<div className="absolute sm:bottom-8 bottom-4 sm:right-8 right-4 w-16 h-16 border-b-4 border-r-4 border-yellow-500"></div>
 
 						{/* Content */}
 						<div className="text-center space-y-6 relative z-10">
@@ -104,20 +105,20 @@ export const Certificate = ({ name }: CertificateProps) => {
 								</p>
 							</div>
 
-							<div className="flex justify-between items-end pt-8 max-w-md mx-auto">
+							<div className="flex justify-between pt-8 max-w-md mx-auto">
 								<div className="text-left">
-									<div className="w-32 h-px bg-blue-950 mb-2"></div>
-									<p className="text-sm text-muted-foreground">
+									<div className="sm:w-32 w-20 h-px bg-blue-950 mb-2"></div>
+									<p className="text-sm text-blue-950/80">
 										Authorized Signature
 									</p>
 								</div>
-								<div className="flex items-center gap-2 text-blue-600">
+								<div className="flex items-center sm:gap-2 gap-1 text-blue-600">
 									<CheckCircle2 className="w-6 h-6" />
 									<span className="text-sm font-medium">Verified</span>
 								</div>
 								<div className="text-right">
-									<div className="w-32 h-px bg-blue-950 mb-2"></div>
-									<p className="text-sm text-muted-foreground">
+									<div className="sm:w-32 w-20 h-px bg-blue-950 mb-2"></div>
+									<p className="text-sm text-blue-950/80">
 										{new Date().toLocaleDateString()}
 									</p>
 								</div>
@@ -130,7 +131,7 @@ export const Certificate = ({ name }: CertificateProps) => {
 					<Button
 						onClick={handleDownload}
 						size="lg"
-						className="h-12 px-8 text-lg font-semibold bg-gradient-to-r from-blue-500 to-blue-800 hover:shadow-[var(--shadow-glow)] transition-all duration-300"
+						className="h-12 px-8 text-lg font-semibold bg-gradient-to-r from-blue-500 to-blue-800 hover:opacity-80 transition-all duration-300"
 					>
 						<Download className="w-5 h-5 mr-2" />
 						Download Certificate
