@@ -5,8 +5,6 @@ import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import { useState } from 'react';
 
-// The html2canvas import is no longer needed for HTML download
-// const html2canvasPromise = import('html2canvas');
 
 interface CertificateProps {
 	name: string;
@@ -24,7 +22,6 @@ export const Certificate = ({ name }: CertificateProps) => {
 
 		try {
 			setIsDownloading(true);
-			toast.loading('Preparing download...');
 
 			const fullHtml = `
                 <!DOCTYPE html>
