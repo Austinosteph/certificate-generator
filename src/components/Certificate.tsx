@@ -179,7 +179,7 @@ export const Certificate = ({ name }: CertificateProps) => {
 						className="h-12 px-8 text-lg font-semibold bg-blue-600 hover:bg-blue-700 text-white"
 					>
 						<Download className="w-5 h-5 mr-2" />
-						{isDownloading ? 'Downloading...' : 'Download Certificate (HTML)'}
+						{isDownloading ? 'Downloading...' : 'Download Certificate'}
 					</Button>
 				</div>
 			</div>
